@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientes extends Migration
+class CreateVendas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateClientes extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->string("nome", 150);
-            $table->string("endereco", 200);
-            $table->string("cep", 8);
-            $table->string("cidade", 50);
-            $table->string("estado", 50);
-
+            $table->unsignedBigInteger('id_cliente');
+            $table->double('valor_total_venda', 8, 2);
+            $table->string('descricao', 255);
             $table->timestamps();
+
+            $table->foreign('id_cliente')->references('id')->on('clientes');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateClientes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('vendas');
     }
 }

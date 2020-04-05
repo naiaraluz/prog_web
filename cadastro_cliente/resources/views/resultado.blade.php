@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>{{ $mensagem }}</h1>
-</body>
-</html>
+@extends('template')
+
+@section ('conteudo')
+
+<div class="alert alert-{{ $classe }}" >
+  {{ $mensagem }}
+</div>
+@endsection

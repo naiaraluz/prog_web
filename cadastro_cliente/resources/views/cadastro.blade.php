@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends ('template')
+	@section('conteudo')
 	<h1>Cadastro de Clientes</h1>
-	<form method="post" action="{{ route('cliente_novo') }}">
+	<form  class="form-group" method="post" action="{{ route('cliente_novo') }}">
 		@csrf
-		<input type="text" name="nome" placeholder="Nome">
-		<input type="text" name="endereco" placeholder="Endereço">
-		<input type="text" name="cep" placeholder="CEP">
-		<input type="text" name="estado" placeholder="Estado">
-		<input type="text" name="cidade" placeholder="Cidade">
-		<input type="submit" value="Enviar">
+		<input class="form-control mt-2" type="text" name="nome" placeholder="Nome">
+		<input class="form-control mt-2" type="text" name="endereco" placeholder="Endereço">
+		<input class="form-control mt-2" type="text" name="cep" placeholder="CEP">
+		<input class="form-control mt-2" type="text" name="estado" placeholder="Estado">
+		<input class="form-control mt-2" type="text" name="cidade" placeholder="Cidade">
+		<input class="btn btn-primary mt-2" type="submit" value="Cadastrar">
 	</form>
-</body>
-</html>
+
+	@endsection
+

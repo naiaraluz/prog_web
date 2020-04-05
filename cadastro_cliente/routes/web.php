@@ -17,7 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clientes', 'ClientesController@nomesClientes');
-Route::get('/clientes/cadastro', 'ClientesController@cadastro');
+Route::get('/clientes/listar', 'ClientesController@nomesClientes')->name('clientes_listar');
+
+Route::get('/clientes/cadastro', 'ClientesController@cadastro')->name('clientes_cadastrar');
 
 Route::post('/clientes/novo', 'ClientesController@novo')->name('cliente_novo');
+
+Route::get('/clientes/alterar/{id}', 'ClientesController@telaAlteracao')->name('clientes_tela_alterar');
+
+Route::post('/clientes/alterar/{id}', 'ClientesController@alterar')->name('clientes_alterar');
+
+Route::get('/clientes/excluir/{id}', 'ClientesController@excluir')->name('clientes_excluir');
