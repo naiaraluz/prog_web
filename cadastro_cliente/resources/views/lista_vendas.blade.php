@@ -1,0 +1,26 @@
+@extends ('template')	
+	@section('conteudo')
+	<h1>Lista de Vendas Cadastrados</h1>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nome Cliente</th>
+				<th>Valor Total da Venda</th>
+				<th>Descrição</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach ($vendas as $v)
+			<tr>
+				<td>{{ App\Cliente::find($v->id_cliente)->nome }}</td>
+				<td>{{ $v->valor_total_venda }}</td>
+				<td>{{ $v->descricao }}</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<a class="btn btn-primary" href="{{ route('vendas_cadastrar') }}">Incuir Nova Venda</a>
+
+	@endsection

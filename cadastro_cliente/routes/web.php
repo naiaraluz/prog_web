@@ -19,9 +19,24 @@ Route::get('/', function () {
 
 Route::get('/clientes/listar', 'ClientesController@nomesClientes')->name('clientes_listar');
 
+Route::get('/vendas/listar', 'VendasController@nomesVendas')->name('vendas_listar');
+
+
+
+
 Route::get('/clientes/cadastro', 'ClientesController@cadastro')->name('clientes_cadastrar');
 
+Route::get('/cadastro/vendas', 'VendasController@cadastro')->name('vendas_cadastrar');
+
+
+
+
 Route::post('/clientes/novo', 'ClientesController@novo')->name('cliente_novo');
+
+Route::post('/vendas/novo', 'VendasController@novo')->name('venda_nova');
+
+
+
 
 Route::get('/clientes/alterar/{id}', 'ClientesController@telaAlteracao')->name('clientes_tela_alterar');
 
