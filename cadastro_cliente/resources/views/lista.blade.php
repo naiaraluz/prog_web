@@ -34,10 +34,10 @@
 	</table>
 
 	<div>
-	<a class="btn btn-primary" href="{{ route('clientes_cadastrar') }}">Cadastrar Novo</a>
+		<a class="btn btn-primary" href="{{ route('clientes_cadastrar') }}">Cadastrar Novo</a>
 	</div>
 	<div>
-	<a class="btn btn-primary mt-3" href="{{ route('vendas_cadastrar') }}">Incluir Nova Venda</a>
+		<a class="btn btn-primary mt-3" href="{{ route('vendas_cadastrar') }}">Incluir Nova Venda</a>
 	</div>
 
 	<script>
