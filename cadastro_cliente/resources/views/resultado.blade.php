@@ -5,9 +5,12 @@
 <div class="alert alert-{{ $classe }}" >
   {{ $mensagem }}
 </div>
+	<div>
+		<a class="btn btn-primary mt-3" href="{{ route('tela_login') }}">Logar</a>
+	</div>
 
 	<div>
-		<a class="btn btn-primary" href="{{ route('vendas_cadastrar') }}">Incuir Nova Venda</a>
+		<a class="btn btn-primary mt-3" href="{{ route('vendas_cadastrar') }}">Incuir Nova Venda</a>
 	</div>
 
 	<div>

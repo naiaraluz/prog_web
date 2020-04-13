@@ -4,11 +4,11 @@
 	<form  class="form-group" method="post" action="{{ route('venda_nova') }}">
 		@csrf
 		<select class="custom-select" name="id_cliente">
-                        @foreach(App\Cliente::all() as $c)
+                        @foreach($clientes as $c)
                         <option value="{{ $c->id }}">  {{ $c->id }} {{ $c->nome }} </option>
                         @endforeach
         </select>
-		<input class="form-control mt-2" type="text" name="valor_total_venda" placeholder="Valor Total da Venda">
+		<input class="form-control mt-2" type="number" step="0.01" name="valor_total_venda" placeholder="Valor Total da Venda">
 		<input class="form-control mt-2" type="text" name="descricao" placeholder="Descrição">
 		<input class="btn btn-primary mt-2" type="submit" value="Incluir">
 		<div>

@@ -21,20 +21,29 @@
 				      <li class="nav-item active">
 				        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Features</a>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link" href="{{ route('tela_login') }}">Entrar</a>
 				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">Pricing</a>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link" href="{{ route('logout') }}">Sair</a>
 				      </li>
 				      <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				          Clientes
+				          Cadastros
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				        	<a class="dropdown-item" href="{{ route('usuarios_cadastrar') }}">Cadastro de Usuários</a>
+				         	<a class="dropdown-item" href="{{ route('clientes_cadastrar') }}">Cadastro de Clientes</a>
+				        	<a class="dropdown-item" href=" {{ route('vendas_cadastrar') }}">Cadastro de Vendas</a>
+				        </div>
+				      </li>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Listas
 				        </a>
 				        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				          <a class="dropdown-item" href="{{ route('clientes_listar') }}">Lista de Clientes</a>
 				          <a class="dropdown-item" href=" {{ route('vendas_listar') }}">Lista de Vendas</a>
-				          <a class="dropdown-item" href="#">Something else here</a>
 				        </div>
 				      </li>
 				    </ul>

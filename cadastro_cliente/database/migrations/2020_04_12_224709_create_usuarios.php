@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVendas extends Migration
+class CreateUsuarios extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateVendas extends Migration
      */
     public function up()
     {
-        Schema::create('vendas', function (Blueprint $table) {
+        Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_cliente');
-            $table->double('valor_total_venda', 8, 2);
-            $table->string('descricao', 255);
             $table->timestamps();
-
-            $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->string("nome", 150);
+            $table->string("login", 15);
+            $table->string("senha", 15);
         });
     }
 
@@ -31,8 +29,6 @@ class CreateVendas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendas');
+        Schema::dropIfExists('usuarios');
     }
 }
-
-

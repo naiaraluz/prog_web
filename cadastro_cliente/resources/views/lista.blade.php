@@ -27,6 +27,7 @@
 				<td>
 					<a class='btn btn-warning' href="{{ route('clientes_tela_alterar', ['id' => $c->id]) }}" >Alterar</a>
 					<a class='btn btn-danger'  href="#" onclick="exclui({{ $c->id }})" >Excluir</a>
+					<a class='btn btn-success' href="{{ route('vendas_por_cliente', ['id' => $c->id]) }}" >Vendas</a>
 				</td>
 			</tr>
 			@endforeach

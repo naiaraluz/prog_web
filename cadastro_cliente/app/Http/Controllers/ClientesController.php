@@ -8,35 +8,46 @@ use App\Cliente;
 class ClientesController extends Controller
 {
     function nomesClientes(){
-    	$clientes = Cliente::all();
+        if (session()->has("login")){
+        	$clientes = Cliente::all();
 
-    	return view('lista', ['clientes' => $clientes]);
+        	return view('lista', ['clientes' => $clientes]);
+        }
+        return view("acesso_nao_permitido");
     }
 
     function cadastro(){
-    	return view("cadastro");
-
+        if (session()->has("login")){
+    	   return view("cadastro");
+        }
+        return view("acesso_nao_permitido");
     }
 
     function telaAlteracao($id){
-        $cliente = Cliente::find($id);
+        if (session()->has("login")){
+            $cliente = Cliente::find($id);
 
-        return view("alteracao", ['c' => $cliente]);
+            return view("alteracao", ['c' => $cliente]);
+        }
+        return view("acesso_nao_permitido");
     }
 
     function excluir($id){
-        $cliente = Cliente::find($id);
+        if (session()->has("login")){
+            $cliente = Cliente::find($id);
 
-        if($cliente->delete()){
-            $mensagem = "Usuário excluído com sucesso!";
-            $classe = "success";
-        }else{
-            $mensagem = "Usuário $nome não foi excluído!";
-            $classe = "danger";
+            if($cliente->delete()){
+                $mensagem = "Usuário excluído com sucesso!";
+                $classe = "success";
+            }else{
+                $mensagem = "Usuário $nome não foi excluído!";
+                $classe = "danger";
+            }
+
+            
+            return view("resultado", ["mensagem" => $mensagem, "classe"=>$classe]);
         }
-
-        
-        return view("resultado", ["mensagem" => $mensagem, "classe"=>$classe]);
+        return view("acesso_nao_permitido");
     }
 
     function alterar(Request $req, $id){

@@ -15,7 +15,8 @@ class VendasController extends Controller
     }
 
     function cadastro(){
-    	return view("cadastro_vendas");
+        $clientes = Cliente::all();
+    	return view("cadastro_vendas", ["clientes"=>$clientes]);
 
     }
 
@@ -41,5 +42,16 @@ class VendasController extends Controller
     	return view("resultado", ["mensagem" => $mensagem, "classe" => $classe]);
 
 
+    }
+
+    function vendaPorCliente($id){
+        $cliente = Cliente::find($id);
+
+        if($cliente){
+          return view("venda_por_cliente",["cliente"=>$cliente]);  
+      } else {
+        return redirect()->route('clientes_listar');
+      }
+        
     }
 }
