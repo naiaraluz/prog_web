@@ -51,54 +51,61 @@ class ClientesController extends Controller
     }
 
     function alterar(Request $req, $id){
-        $nome = $req->input('nome');
-        $endereco = $req->input('endereco');
-        $cep = $req->input('cep');
-        $cidade = $req->input('cidade');
-        $estado = $req->input('estado');
+        if (session()->has("login")){
+            $nome = $req->input('nome');
+            $endereco = $req->input('endereco');
+            $cep = $req->input('cep');
+            $cidade = $req->input('cidade');
+            $estado = $req->input('estado');
 
-        $cliente = Cliente::find($id);
-        $cliente->nome = $nome;
-        $cliente->endereco = $endereco;
-        $cliente->cep = $cep;
-        $cliente->cidade = $cidade;
-        $cliente->estado = $estado;
+            $cliente = Cliente::find($id);
+            $cliente->nome = $nome;
+            $cliente->endereco = $endereco;
+            $cliente->cep = $cep;
+            $cliente->cidade = $cidade;
+            $cliente->estado = $estado;
 
-        if($cliente->save()){
-            $mensagem = "Usuário $nome alterado com sucesso!";
-            $classe = "success";
-        }else {
-            $mensagem = "Não foi possível fazer a alteração!";
-            $classe = "danger";
+            if($cliente->save()){
+                $mensagem = "Usuário $nome alterado com sucesso!";
+                $classe = "success";
+            }else {
+                $mensagem = "Não foi possível fazer a alteração!";
+                $classe = "danger";
+            }
+
+            return view("resultado", ["mensagem" => $mensagem, "classe"=>$classe]);
         }
+        return view("acesso_nao_permitido");
 
-        return view("resultado", ["mensagem" => $mensagem, "classe"=>$classe]);
     }
 
     function novo(Request $req){
-    	$nome = $req->input('nome');
-    	$endereco = $req->input('endereco');
-    	$cep = $req->input('cep');
-    	$cidade = $req->input('cidade');
-    	$estado = $req->input('estado');
+        if (session()->has("login")){
+        	$nome = $req->input('nome');
+        	$endereco = $req->input('endereco');
+        	$cep = $req->input('cep');
+        	$cidade = $req->input('cidade');
+        	$estado = $req->input('estado');
 
-    	$cliente = new Cliente();
-    	$cliente->nome = $nome;
-    	$cliente->endereco = $endereco;
-    	$cliente->cep = $cep;
-    	$cliente->cidade = $cidade;
-    	$cliente->estado = $estado;
-    	$cliente->save();
+        	$cliente = new Cliente();
+        	$cliente->nome = $nome;
+        	$cliente->endereco = $endereco;
+        	$cliente->cep = $cep;
+        	$cliente->cidade = $cidade;
+        	$cliente->estado = $estado;
+        	$cliente->save();
 
-    	if ($cliente->save()){
-    		$mensagem = "Usuário $nome inserido com Sucesso!";
-            $classe = "success";
-    	} else {
-    		$mensagem = "Usuário não foi inserido!";
-            $classe = "danger";
-    	}
+        	if ($cliente->save()){
+        		$mensagem = "Usuário $nome inserido com Sucesso!";
+                $classe = "success";
+        	} else {
+        		$mensagem = "Usuário não foi inserido!";
+                $classe = "danger";
+        	}
 
-    	return view("resultado", ["mensagem" => $mensagem, "classe" => $classe]);
+        	return view("resultado", ["mensagem" => $mensagem, "classe" => $classe]);
+        }
+        return view("acesso_nao_permitido");
 
 
     }
