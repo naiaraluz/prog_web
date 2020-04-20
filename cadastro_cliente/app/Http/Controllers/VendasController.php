@@ -63,4 +63,10 @@ class VendasController extends Controller
         }
         return view("acesso_nao_permitido");
     }
+
+    function itensVenda($id){
+        $venda = Vendas::find($id);
+
+        return view('lista_produtos_venda',['venda'=> $venda]);
+    }
 }

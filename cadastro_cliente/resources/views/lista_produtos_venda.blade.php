@@ -1,25 +1,30 @@
-@extends ('template')	
-	@section('conteudo')
-	<h1>Lista de Vendas Cadastrados</h1>
+@extends('template')
+
+@section ('conteudo')
+	<h1>Venda # {{ $venda->id }}</h1>
 
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Nome Cliente</th>
-				<th>Valor Total da Venda</th>
-				<th>Descrição</th>
-				<th>Data</th>
+				<th>ID Item</th>
+				<th>Nome</th>
+				<th>Quantidade</th>
+				<th>Valor Unitário</th>
+				<th>Subtotal<th>
+				<th>Data<th>
 				<th>Operações<th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach ($vendas as $v)
+			@foreach ($venda->produtos as $p)
 			<tr>
-				<td>{{ App\Cliente::find($v->id_cliente)->nome }}</td>
-				<td>{{ $v->valor_total_venda }}</td>
-				<td>{{ $v->descricao }}</td>
-				<td>{{ $v->created_at }}</td>
-				<td><a class="btn btn-info" href="{{ route('venda_itens', ['id'=> $v->id]) }}">Itens</a></td>
+				<td>{{ $p->pivot->id }}</td>
+				<td>{{ $p->nome }}</td>
+				<td>{{ $p->pivot->quantidade }}</td>
+				<td>{{ $p->valor_unitario }}</td>
+				<td>{{ $p->pivot->subtotal }}</td>
+				<td>{{ $p->pivot->created_at }}</td>
+				<td></td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -37,6 +42,4 @@
 	<div>
 		<a class="btn btn-primary mt-3" href="{{ route('clientes_listar') }}">Listar Clientes</a>
 	</div>
-	
-
-	@endsection
+@endsection

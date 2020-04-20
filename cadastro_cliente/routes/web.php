@@ -47,6 +47,8 @@ Route::post('/vendas/novo', 'VendasController@novo')->name('venda_nova');
 
 Route::get('vendas/cliente/{id}', 'VendasController@vendaPorCliente')->name('vendas_por_cliente');
 
+Route::get('/venda/{id}/itens', 'VendasController@itensVenda')->name('venda_itens');
+
 /*App*/
 
 Route::get('/tela_login', 'AppController@tela_login')->name('tela_login');
