@@ -8,14 +8,10 @@
                         <option value="{{ $c->id }}">  {{ $c->id }} {{ $c->nome }} </option>
                         @endforeach
         </select>
-		<input class="form-control mt-2" type="number" step="0.01" name="valor_total_venda" placeholder="Valor Total da Venda">
 		<input class="form-control mt-2" type="text" name="descricao" placeholder="Descrição">
 		<input class="btn btn-primary mt-2" type="submit" value="Incluir">
 		<div>
 			<a class="btn btn-primary mt-2" href="{{ route('vendas_listar') }}">Listar Vendas</a>
 		</div>
 	</form>
-
-	
-
 	@endsection

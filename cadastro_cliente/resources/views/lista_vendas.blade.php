@@ -1,6 +1,6 @@
 @extends ('template')	
 	@section('conteudo')
-	<h1>Lista de Vendas Cadastrados</h1>
+	<h1>Lista de Vendas Cadastradas</h1>
 
 	<table class="table table-striped">
 		<thead>
