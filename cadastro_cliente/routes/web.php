@@ -55,6 +55,8 @@ Route::post('/venda/{id}/itens/adicionar', 'VendasController@adicionarItem')->na
 
 Route::get('/produtos/listar', 'VendasController@nomesProdutos')->name('produtos_listar');
 
+Route::get('/venda/{id}/itens/remover/{id_produto}', 'VendasController@excluirItem')->name('vendas_item_excluir');
+
 
 
 /*App*/

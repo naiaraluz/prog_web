@@ -1,6 +1,6 @@
 @extends ('template')	
 	@section('conteudo')
-	<h1>Lista de Produtos Cadastradas</h1>
+	<h1>Lista de Produtos Cadastrados</h1>
 
 	<table class="table table-striped">
 		<thead>
@@ -16,7 +16,7 @@
 			<tr>
 				<td>{{ $p->nome }}</td>
 				<td>{{ $p->valor_unitario }}</td>
-				<td>{{ App\Produto::find($p->id_tipo_produto)->nome }}</td>
+				<td>{{ $p->tipo_produto->nome }}</td>
 				<td>{{ $p->created_at }}</td>
 			</tr>
 			@endforeach

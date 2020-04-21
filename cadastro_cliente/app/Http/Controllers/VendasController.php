@@ -106,4 +106,24 @@ class VendasController extends Controller
         return redirect()->route('venda_itens_novo', ['id' => $venda->id]);
 
     }
+
+    function excluirItem($id_produto, $id){
+        $venda = Vendas::find($id);
+        $subtotal = 0;
+
+        foreach ($venda->produtos as $vp) {
+            if($vp->id == $id_produto){
+                $subtotal = $vp->pivot->subtotal;
+                    break;
+
+            }
+        }
+
+        $venda->produtos()->detach($id_produto);
+        $venda->valor_total_venda = $venda->valor_total_venda - $subtotal;
+        $venda->save();
+        
+        return redirect()->route('venda_itens_novo', ['id' => $venda->id]);
+
+    }
 }

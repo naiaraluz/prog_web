@@ -16,7 +16,7 @@ class CreateVendas extends Migration
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_cliente');
-            $table->double('valor_total_venda', 8, 2);
+            $table->decimal('valor_total_venda', 15, 2);
             $table->string('descricao', 255);
             $table->timestamps();
 

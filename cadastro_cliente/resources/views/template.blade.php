@@ -44,6 +44,7 @@
 				        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				          <a class="dropdown-item" href="{{ route('clientes_listar') }}">Lista de Clientes</a>
 				          <a class="dropdown-item" href=" {{ route('vendas_listar') }}">Lista de Vendas</a>
+				          <a class="dropdown-item" href=" {{ route('produtos_listar') }}">Lista de Produtos</a>
 				        </div>
 				      </li>
 				    </ul>

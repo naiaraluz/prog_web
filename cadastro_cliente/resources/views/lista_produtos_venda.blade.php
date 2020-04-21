@@ -10,9 +10,9 @@
 				<th>Nome</th>
 				<th>Quantidade</th>
 				<th>Valor Unitário</th>
-				<th>Subtotal<th>
-				<th>Data<th>
-				<th>Operações<th>
+				<th>Subtotal</th>
+				<th>Data</th>
+				<th>Operações</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +29,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	
 
 
 	<div>
