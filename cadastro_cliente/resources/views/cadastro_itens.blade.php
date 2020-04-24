@@ -34,6 +34,7 @@
 				<td>{{ $p->valor_unitario }}</td>
 				<td>{{ $p->pivot->subtotal }}</td>
 				<td>{{ $p->pivot->created_at }}</td>
+				<td></td>
 				<td><a href="#" class="btn btn-danger" onclick="exclui({{ $p->id }})">Remover</a></td>
 				
 			</tr>
@@ -47,7 +48,7 @@
 				<td><b>{{ $venda->valor_total_venda }}</b></td>
 				<td></td>
 				<td></td>
-				
+				<td></td>
 			</tr>
 		</tbody>
 	</table>
