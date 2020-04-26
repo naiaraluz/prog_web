@@ -35,7 +35,7 @@
 				<td>{{ $p->pivot->subtotal }}</td>
 				<td>{{ $p->pivot->created_at }}</td>
 				<td></td>
-				<td><a href="#" class="btn btn-danger" onclick="exclui({{ $p->id }})">Remover</a></td>
+				<td><a href="#" class="btn btn-danger" onclick="exclui({{ $p->pivot->id }})">Remover</a></td>
 				
 			</tr>
 			@endforeach
@@ -56,8 +56,11 @@
 	<script>
 		function exclui(id){
 			if(confirm('Deseja excluir o item de id:' + id + '?')){
-				location.href='/venda/{$venda->id}/itens/remover/' + id;
+				location.href='/venda/{{ $venda->id }}/itens/remover/' + id;
 			}
 		}	
 	</script>
+	<div>
+			<a class="btn btn-primary mt-2" href="{{ route('vendas_listar') }}">Concluir</a>
+	</div>
 @endsection
