@@ -10,12 +10,11 @@ use App\Produto;
 class VendasController extends Controller
 {
     function nomesVendas(){
-        if (session()->has("login")){
+        
             $vendas = Vendas::all();
 
             return view('lista_vendas', ['vendas' => $vendas]);
-        }
-        return view("acesso_nao_permitido");
+        
     }
 
     function nomesProdutos(){

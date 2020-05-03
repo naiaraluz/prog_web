@@ -39,7 +39,7 @@ Route::post('/clientes/novo', 'ClientesController@novo')->name('cliente_novo');
 /*Vendas*/
 
 
-Route::get('/vendas/listar', 'VendasController@nomesVendas')->name('vendas_listar');
+Route::get('/vendas/listar', 'VendasController@nomesVendas')->name('vendas_listar')->middleware('auth');
 
 Route::get('/cadastro/vendas', 'VendasController@cadastro')->name('vendas_cadastrar');
 
@@ -72,3 +72,7 @@ Route::get('/logout', 'AppController@logout')->name('logout');
 Route::get('/usuario/cadastro', 'UsuarioController@telaCadastro')->name('usuarios_cadastrar');
 
 Route::post('/usuario/adicionar', 'UsuarioController@adicionar')->name('usuario_add');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
