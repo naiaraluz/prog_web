@@ -15,7 +15,7 @@
 		<tbody>
 			@foreach ($vendas as $v)
 			<tr>
-				<td>{{ App\Cliente::find($v->id_cliente)->nome }}</td>
+				<td>{{ $v->cliente->nome }}</td>
 				<td>{{ $v->valor_total_venda }}</td>
 				<td>{{ $v->descricao }}</td>
 				<td>{{ $v->created_at }}</td>
