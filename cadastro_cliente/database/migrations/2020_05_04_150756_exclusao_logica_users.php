@@ -15,6 +15,8 @@ class ExclusaoLogicaUsers extends Migration
     {
         Schema::table('users', function(Blueprint $table){
             $table->softDeletes(); 
+
+            $table->integer('nivel'); #0 -> comum; 1 -> admin
         });
     }
 
@@ -27,6 +29,7 @@ class ExclusaoLogicaUsers extends Migration
     {
         Schema::table('users', function(Blueprint $table){
             $table->dropSoftDeletes(); 
+            $table->dropColumn('nivel');
         });
     }
 }

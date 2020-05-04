@@ -56,9 +56,13 @@
 			</div>
 
 			<div class="col-md-8 mt-5">
-				<p> Olá, {{ Auth:: user()->name }}</p>
-				 @yield('conteudo')
-				}
+				<h3> Olá, {{ Auth:: user()->name }}</h3>
+				@if (session()->has('mensagem'))
+					<div class="alert alert-danger">{{ session('mensagem') }}</div>
+					{{ session()->forget(['mensagem']) }}
+				@endif
+				@yield('conteudo')
+				
 			</div>
 
 			<div class="col-md-2">
