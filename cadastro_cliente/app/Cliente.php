@@ -13,6 +13,6 @@ class Cliente extends Model
     protected $primaryKey = 'id';
 
     function vendas(){
-    	return $this->hasMany('App\Venda', 'id_cliente', 'id');
+    	return $this->hasMany('App\Vendas', 'id_cliente', 'id');
     }
 }
