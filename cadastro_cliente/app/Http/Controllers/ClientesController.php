@@ -4,36 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cliente;
+use Auth;
 
 class ClientesController extends Controller
 {
     function nomesClientes(){
-        if (session()->has("login")){
+       
         	$clientes = Cliente::all();
 
         	return view('lista', ['clientes' => $clientes]);
-        }
-        return view("acesso_nao_permitido");
+      
     }
 
     function cadastro(){
-        if (session()->has("login")){
+       
     	   return view("cadastro");
-        }
-        return view("acesso_nao_permitido");
+  
     }
 
     function telaAlteracao($id){
-        if (session()->has("login")){
+        
             $cliente = Cliente::find($id);
 
             return view("alteracao", ['c' => $cliente]);
-        }
-        return view("acesso_nao_permitido");
+  
     }
 
     function excluir($id){
-        if (session()->has("login")){
+        
             $cliente = Cliente::find($id);
 
             if($cliente->delete()){
@@ -46,12 +44,11 @@ class ClientesController extends Controller
 
             
             return view("resultado", ["mensagem" => $mensagem, "classe"=>$classe]);
-        }
-        return view("acesso_nao_permitido");
+        
     }
 
     function alterar(Request $req, $id){
-        if (session()->has("login")){
+        
             $nome = $req->input('nome');
             $endereco = $req->input('endereco');
             $cep = $req->input('cep');
@@ -74,13 +71,12 @@ class ClientesController extends Controller
             }
 
             return view("resultado", ["mensagem" => $mensagem, "classe"=>$classe]);
-        }
-        return view("acesso_nao_permitido");
+      
 
     }
 
     function novo(Request $req){
-        if (session()->has("login")){
+       
         	$nome = $req->input('nome');
         	$endereco = $req->input('endereco');
         	$cep = $req->input('cep');
@@ -104,9 +100,7 @@ class ClientesController extends Controller
         	}
 
         	return view("resultado", ["mensagem" => $mensagem, "classe" => $classe]);
-        }
-        return view("acesso_nao_permitido");
-
+        
 
     }
 }
