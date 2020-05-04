@@ -63,15 +63,19 @@ Route::get('/venda/{id}/itens/remover/{id_produto}', 'VendasController@excluirIt
 
 Route::get('/tela_login', 'AppController@tela_login')->name('tela_login');
 
-Route::post('/login', 'AppController@login')->name('logar');
+#Route::post('/login', 'AppController@login')->name('logar');
 
-Route::get('/logout', 'AppController@logout')->name('logout');
+#Route::get('/logout', 'AppController@logout')->name('logout');
 
 /*Usuario*/
 
 Route::get('/usuario/cadastro', 'UsuarioController@telaCadastro')->name('usuarios_cadastrar');
 
 Route::post('/usuario/adicionar', 'UsuarioController@adicionar')->name('usuario_add');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
