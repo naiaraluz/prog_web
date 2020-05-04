@@ -71,6 +71,7 @@ Route::get('/logout', 'AppController@logout')->name('logout');
 
 /*App*/
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();

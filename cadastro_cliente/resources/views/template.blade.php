@@ -58,7 +58,7 @@
 			<div class="col-md-8 mt-5">
 				<p> Olá, {{ Auth:: user()->name }}</p>
 				 @yield('conteudo')
-				}
+				
 			</div>
 
 			<div class="col-md-2">
