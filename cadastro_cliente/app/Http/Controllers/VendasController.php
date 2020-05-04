@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cliente;
 use App\Vendas;
 use App\Produto;
+use Auth;
 
 class VendasController extends Controller
 {
@@ -18,25 +19,23 @@ class VendasController extends Controller
     }
 
     function nomesProdutos(){
-        if (session()->has("login")){
+        
             $produtos = Produto::all();
 
             return view('lista_produtos', ['produtos' => $produtos]);
-        }
-        return view("acesso_nao_permitido");
+       
     }
 
     function cadastro(){
-        if (session()->has("login")){
+       
             $clientes = Cliente::all();
         	return view("cadastro_vendas", ["clientes"=>$clientes]);
-        }
-        return view("acesso_nao_permitido");
+   
     }
 
 
     function novo(Request $req){
-        if (session()->has("login")){
+      
         	$id_cliente = $req->input('id_cliente');
         	$descricao = $req->input('descricao');
 
@@ -55,8 +54,7 @@ class VendasController extends Controller
             return redirect()->route('venda_itens_novo', ['id' => $vendas->id]);
 
         	//return view("resultado", ["mensagem" => $mensagem, "classe" => $classe]);
-        }
-        return view("acesso_nao_permitido");
+       
 
     }
 
@@ -68,7 +66,7 @@ class VendasController extends Controller
     }
 
     function vendaPorCliente($id){
-        if (session()->has("login")){
+      
             $cliente = Cliente::find($id);
 
             if($cliente){
@@ -76,8 +74,7 @@ class VendasController extends Controller
             } else {
                 return redirect()->route('clientes_listar');
             }
-        }
-        return view("acesso_nao_permitido");
+        
     }
 
     function itensVenda($id){
